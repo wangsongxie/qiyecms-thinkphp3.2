@@ -1,0 +1,7 @@
+<include file="Public:header" />
+
+                <article:list type="CarouselList" limit="5" order="orderby asc" where="state = '1'">
+                <li><a href="{$v.url}"><img src="/qiye/Uploads/{$v.img}" width="407" height="301" /></a></li>
+                </article:list>
+            
+<include file="Public:footer" />

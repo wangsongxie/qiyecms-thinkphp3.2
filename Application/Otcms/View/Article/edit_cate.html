@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<include file="Public:header" />
+	<include file="Public:page_css" />
+	<body class="gray-bg wrapper wrapper-content">
+		
+	
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-title">
+						<h5><i class="fa fa-tasks"></i> 编辑分类</h5>
+					</div>
+					<div class="ibox-content">
+						<form action="{:U('runedittype')}" method="post" class="form-horizontal" id="signupForm">
+						<input type="hidden" name="id" value="{$detail.id}" />
+
+							<div class="form-group">
+								<label class="col-sm-2 control-label"> 所属父级</label>
+								<div class="col-sm-5">
+									<select name="pid" class="form-control m-b chosen-select">
+										<option value="0">--默认顶级--</option>
+										<foreach name="catlist" item="v">
+											<if condition="($v.pid eq 0) AND ($v[id] neq $detail[id])">
+												<option value="{$v.id}" <if condition="$v.id eq $detail[pid]">selected</if> >{$v.lefthtml}{$v.cate_name}</option>
+											</if>
+										</foreach>
+									</select>
+								</div>
+							</div>
+
+
+
+
+							<div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">分类名称</label>
+								<div class="col-sm-6">
+									<input type="text" name="cate_name" value="{$detail.cate_name}" placeholder="输入分类名称" class="form-control">
+								</div>
+							</div>
+
+
+							<div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label"> 关键词</label>
+								<div class="col-sm-5">
+									<input type="text" name="keysword" id="keysword" value="{$detail.keysword}" placeholder="关键词"  class="form-control" />
+								</div>
+							</div>
+							<div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label"> 描述</label>
+								<div class="col-sm-5">
+									<textarea type="text" name="miaoshu"  rows="5" placeholder="描述" class="form-control limitedone"  maxlength="100">{$detail.miaoshu}</textarea>
+								</div>
+							</div>
+							<div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">自定义字段</label>
+								<div class="col-sm-8">
+									<textarea type="ziduans" name="ziduans"  rows="5" placeholder="自定义字段" class="form-control limitedone"  maxlength="100">{$detail.ziduans}</textarea>
+									格式“姓名|name;性别|sex”，多字段用“;”分隔。
+								</div>
+							</div>
+							<div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label"> 列表页模板</label>
+								<div class="col-sm-5">
+									<select id="listhtml" name="listhtml" class="form-control m-b chosen-select">
+
+										<option value="">请选择列表页文件</option>
+										<foreach name="listarray" item="v">
+											<option value="{$v}" <if condition="$v eq $detail[listhtml]">selected</if>>{$v}</option>
+										</foreach>
+									</select>
+								</div>
+							</div>
+							<div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label"> 内容页模板</label>
+								<div class="col-sm-5">
+									<select id="articlehtml" name="articlehtml" class="form-control m-b chosen-select">
+
+										<option value="">请选择内容页文件</option>
+										<foreach name="showarray" item="v">
+											<option value="{$v}" <if condition="$v eq $detail[articlehtml]">selected</if>>{$v}</option>
+										</foreach>
+									</select>
+								</div>
+							</div>
+
+							<div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label"> 视频</label>
+								<div class="col-sm-5" style="padding-top:5px;">
+									<input name="hasvideo" id="hasvideo" value="1" class="js-switch" type="checkbox" <if condition='$detail[hasvideo] eq 1'>checked</if> />
+									<span class="lbl">&nbsp;&nbsp;默认关闭</span>
+								</div>
+							</div>
+
+							<div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label"> 图集</label>
+								<div class="col-sm-5" style="padding-top:5px;">
+									<input name="hastuji" id="hastuji" value="1" class="js-switch2" type="checkbox" <if condition='$detail[hastuji] eq 1'>checked</if> />
+									<span class="lbl">&nbsp;&nbsp;默认关闭</span>
+								</div>
+							</div>
+
+
+							<div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">排序</label>
+								<div class="col-sm-6">
+									<input type="text" name="orderby" value="{$detail.orderby}" placeholder="输入排序"  class="form-control">
+								</div>
+							</div>
+                            <div class="hr-line-dashed"></div>
+
+							<div class="form-group">
+								<label class="col-sm-2 control-label"> 状&nbsp;态</label>
+								<div class="col-sm-5" style="padding-top:5px;">
+                                    <input name="state" id="state" value="1" class="js-switch3" type="checkbox" <if condition='$detail[state] eq 1'>checked</if>/>
+									<span class="lbl">&nbsp;&nbsp;默认开启</span>
+								</div>
+							</div>
+                            
+							<div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<div class="col-sm-4 col-sm-offset-2">
+									<button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> 保存信息</button>&nbsp;&nbsp;&nbsp;
+									<a class="btn btn-danger" href="javascript:history.go(-1);">取消</a>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			$(function(){		
+				$('#signupForm').ajaxForm({		
+					success: complete, 
+					dataType: 'json'
+				});
+				
+				function complete(data){		
+					if(data.status==1){
+						
+						layer.alert(data.info, {icon: 6}, function(index){
+			 			layer.close(index);
+						window.location.href=data.url;
+						});
+					}else{
+						layer.alert(data.info, {icon: 5});
+						return false;	
+					}
+				}	 
+			});
+		</script>
+		<include file="Public:footer" />
+        
+         <!-- 下拉CSS样式 -->
+<script>
+
+    var config = {
+        '.chosen-select': {},
+    }
+    for (var selector in config) {
+        $(selector).chosen(config[selector]);
+    }
+
+</script>
+
+<!-- IOS开关样式配置 -->
+<script>
+var elem = document.querySelector('.js-switch');
+    var switchery = new Switchery(elem, {
+        color: '#1AB394'
+    });
+var config = {
+    '.chosen-select': {},
+}
+var i=0;
+for (var selector in config) {
+
+    $(selector).chosen(config[selector]);
+}
+var elem = document.querySelector('.js-switch2');
+var switchery = new Switchery(elem, {
+	color: '#1AB394'
+});
+var config = {
+	'.chosen-select': {},
+}
+var i=0;
+for (var selector in config) {
+
+	$(selector).chosen(config[selector]);
+}
+var elem = document.querySelector('.js-switch3');
+var switchery = new Switchery(elem, {
+	color: '#1AB394'
+});
+var config = {
+	'.chosen-select': {},
+}
+var i=0;
+for (var selector in config) {
+
+	$(selector).chosen(config[selector]);
+}
+
+</script>
+
+        
+	</body>
+</html>

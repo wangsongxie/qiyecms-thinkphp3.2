@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<include file="Public:header" />
+	<include file="Public:page_css" />
+	<script>
+$(function(){
+	$('#admin_list_edit').ajaxForm({
+		beforeSubmit: checkForm, // 此方法主要是提交前执行的方法，根据需要设置
+		success: complete, // 这是提交后的方法
+		dataType: 'json'
+	});
+
+	function checkForm(){
+		if( '' == $.trim($('#admin_username').val())){
+			layer.alert('登录用户名不能为空', {icon: 5}, function(index){
+ 			layer.close(index);
+			$('#admin_username').focus();
+			});
+			return false;
+		}
+
+		var admin_username = $.trim($('input[name="admin_username"]').val()); //获取INPUT值
+		var myReg = /^[\u4e00-\u9fa5]+$/;//验证中文
+		if(admin_username.indexOf(" ")>=0)
+		{
+			layer.alert('登录用户名包含了空格，请重新输入', {icon: 5}, function(index){
+ 			layer.close(index);
+			$('#admin_username').focus();
+			});
+			return false;
+		}
+
+        if (myReg.test(admin_username)) {
+			layer.alert('用户名必须是字母，数字，符号', {icon: 5}, function(index){
+ 			layer.close(index);
+			$('#admin_username').focus();
+			});
+			return false;
+        }
+
+		if( '' == $.trim($('#admin_email').val())){
+			layer.alert('用户邮箱不能为空', {icon: 5}, function(index){
+ 			layer.close(index);
+			$('#admin_email').focus();
+			});
+			return false;
+		}
+
+		if( '' == $.trim($('#admin_tel').val())){
+			layer.alert('手机号码不能为空', {icon: 5}, function(index){
+ 			layer.close(index);
+			$('#admin_tel').focus();
+			});
+			return false;
+		}
+
+		if( '' == $.trim($('#admin_realname').val())){
+			layer.alert('通用网名不能为空', {icon: 5}, function(index){
+ 			layer.close(index);
+			$('#admin_realname').focus();
+			});
+			return false;
+		}
+
+
+
+ }
+	function complete(data){
+		if(data.status==1){
+			layer.msg(data.info, {icon: 6,time:1000}, function(index){
+ 			layer.close(index);
+			window.location.href=data.url;
+			});
+		}else{
+			layer.msg(data.info);
+			return false;
+		}
+	}
+
+});
+</script>
+	<body class="gray-bg wrapper wrapper-content">
+
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+
+                    <div class="ibox-title">
+						<h5><i class="fa fa-tasks"></i> 编辑用户</h5>
+					</div>
+					<div class="ibox-content">
+						<form class="form-horizontal" name="admin_list_edit" id="admin_list_edit" method="post" action="__URL__/admin_list_edit">
+								<input name="admin_id" id="admin_id" type="hidden" value="{$admin_list.admin_id}" />
+							<div class="form-group">
+				                <label class="col-sm-2 control-label">所属角色</label>
+				                <div class="col-sm-5">
+                                    <select id="group_id" name="group_id" class="form-control m-b chosen-select">
+
+			                            <option value="">请选择所属角色</option>
+                                        <foreach name="auth_group" item="v">
+                                        	<option value="{$v.id}" <if condition='$v[id] eq $auth_group_access'>selected</if>>{$v.title}</option>
+                                        </foreach>
+			                    	</select>
+				                </div>
+				            </div>
+				            <div class="hr-line-dashed"></div>
+				            <div class="form-group">
+								<label class="col-sm-2 control-label"> 登录用户名</label>
+								<div class="col-sm-5">
+									<input type="text" name="admin_username" id="admin_username" value="{$admin_list.admin_username}" placeholder="用户名必须是以字母开头，数字、符号组合" class="form-control" readonly />
+								</div>
+							</div>
+                            <div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label"> 登录密码</label>
+								<div class="col-sm-5">
+									<input type="text" name="admin_pwd" id="admin_pwd" placeholder="密码必须大于6位，小于15位" class="form-control" />
+								</div>
+							</div>
+							<div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">头像 </label>
+								<div class="col-sm-6">
+									<div style="width: 200px; height: 90px; float: left;">
+										<input type="hidden" name="admin_img" value="{$admin_list.admin_img}" id="data_photo" />
+										<input id="photo_file" name="photo_file" type="file" multiple value="" />
+									</div>
+									<div style="width: 200px; height: 90px; float: left;">
+										<img id="upload_img" class="img-circle" src="__ROOT__/Uploads/{$admin_list.admin_img}" onerror="this.src='__PUBLIC__/Admin/img/touxiang_default.gif'" style="width: 80px;height: 80px" />
+									</div>
+								</div>
+							</div>
+                            <div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label"> 用户邮箱</label>
+								<div class="col-sm-5">
+									<input type="text" name="admin_email" id="admin_email" value="{$admin_list.admin_email}" placeholder="用于密码找回，请认真填写" class="form-control" />
+								</div>
+							</div>
+                            <div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label"> 手机号码</label>
+								<div class="col-sm-5">
+									<input type="text" name="admin_tel" id="admin_tel" value="{$admin_list.admin_tel}" placeholder="只能填写数字" class="form-control" />
+								</div>
+							</div>
+                            <div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label"> 通用网名</label>
+								<div class="col-sm-5">
+									<input type="text" name="admin_realname" id="admin_realname" value="{$admin_list.admin_realname}" placeholder="用于发布信息所有人，且在前端显示" class="form-control" />
+								</div>
+							</div>
+                            <div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label"> 状&nbsp;态</label>
+								<div class="col-sm-5" style="padding-top:5px;">
+                                    <input name="admin_open" id="admin_open" <if condition='$admin_list[admin_open] eq 1'>checked</if> value="1" class="js-switch" type="checkbox"/>
+									<span class="lbl">&nbsp;&nbsp;默认开启</span>
+								</div>
+							</div>
+				            <div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<div class="col-sm-4 col-sm-offset-2">
+									<button class="btn btn-primary" type="submit">保存信息</button>&nbsp;&nbsp;&nbsp;
+									<a class="btn btn-danger" href="javascript:history.go(-1);">返回</a>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<include file="Public:footer" />
+	<js file='__PUBLIC__/Admin/uploadify/jquery.uploadify.min.js' />
+	<link rel="stylesheet" href="__PUBLIC__/Admin/uploadify/uploadify.css">
+	</body>
+
+</html>
+<script type="text/javascript">
+	$("#photo_file").uploadify({
+		'swf': '__PUBLIC__/Admin/uploadify/uploadify.swf?t={$nowtime}',
+		'uploader': '{:U("Upload/uploaduserimg")}',
+		'cancelImg': '__PUBLIC__/Admin/uploadify/uploadify-cancel.png',
+		'buttonText': '上传头像',
+		'height': 35,
+		'fileTypeExts': '*.gif;*.jpg;*.png',
+		'queueSizeLimit': 1,
+		'onUploadSuccess': function(file, data, response) {
+			$("#data_photo").val(data);
+			$("#upload_img").attr('src', '__ROOT__/Uploads' + data).show();
+		}
+	});
+
+</script>
+<!-- 下拉CSS样式 -->
+<script>
+
+    var config = {
+        '.chosen-select': {},
+    }
+    for (var selector in config) {
+        $(selector).chosen(config[selector]);
+    }
+
+</script>
+
+<!-- IOS开关样式配置 -->
+<script>
+var elem = document.querySelector('.js-switch');
+    var switchery = new Switchery(elem, {
+        color: '#1AB394'
+    });
+var config = {
+    '.chosen-select': {},
+}
+for (var selector in config) {
+    $(selector).chosen(config[selector]);
+}
+
+</script>
+
+
+
+	</body>
+</html>

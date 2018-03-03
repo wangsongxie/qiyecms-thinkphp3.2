@@ -1,0 +1,8 @@
+<article:list type="CarouselList" limit="5" order="orderby asc" where="state = '1'">
+               {$v.url} {$v.img}
+</article:list>
+
+article:list为查询数据库   
+type:参数 为tp的M方法的参数
+limit order where  等同于tp的方法
+ 

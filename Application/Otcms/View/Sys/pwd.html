@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<include file="Public:header" />
+	<include file="Public:page_css" />
+<script>
+$(function(){
+
+	$('#pwd').ajaxForm({
+		beforeSubmit: checkForm, // 此方法主要是提交前执行的方法，根据需要设置
+		success: complete, // 这是提交后的方法
+		dataType: 'json'
+	});
+	
+	function checkForm(){	
+		
+		if( '' == $.trim($('#oldpassword').val())){
+			layer.alert('原密码不能为空！', {icon: 5}, function(index){
+ 			layer.close(index);
+			$('#oldpassword').focus(); 
+			});
+			return false;
+		}
+		
+		
+		if( '' == $.trim($('#newpassword').val())){
+			layer.alert('新密码不能为空！', {icon: 5}, function(index){
+ 			layer.close(index);
+			$('#newpassword').focus(); 
+			});
+			return false;
+		}
+		
+
+		if( $.trim($('#newpassword').val()).length < 6){
+			layer.alert('新密码不能少于6位！', {icon: 5}, function(index){
+ 			layer.close(index);
+			$('#newpassword').focus(); 
+			});
+			return false;
+		}
+		
+		
+ }
+
+
+	function complete(data){
+		if(data.status==1){
+			layer.alert(data.info, {icon: 6}, function(index){
+ 			layer.close(index);
+			window.location.href=data.url;
+			});
+		}else{
+			layer.alert(data.info, {icon: 5}, function(index){
+ 			layer.close(index);
+			$('#admin_username').focus(); 
+			});
+			return false;	
+		}
+	}
+ 
+});
+</script>
+	<body class="gray-bg wrapper wrapper-content">
+	
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+
+                    <div class="ibox-title">
+						<h5><i class="fa fa-tasks"></i> 修改密码</h5>
+					</div>
+					<div class="ibox-content">
+						<form name="pwd" id="pwd" method="post" action="{:U('pwd')}" class="form-horizontal">
+						<input type="hidden" name="sys_id" value="{$sys.sys_id}" />
+							<div class="form-group">
+								<label class="col-sm-2 control-label">当前用户</label>
+								<div class="col-sm-6">
+									<input type="text" name="admin_username" id="admin_username" readonly value="{$_SESSION['admin_username']}" class="form-control" />
+								</div>
+								<span class="help-inline col-sm-4">
+									<span class="middle" style="color: red" id="resone"></span>
+								</span>
+							</div>
+							<div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">原密码</label>
+								<div class="col-sm-6">
+									<input type="password" name="oldpassword" id="oldpassword" placeholder="输入原密码" class="form-control">
+								</div>
+								<span class="help-inline col-sm-4">
+									<span class="middle" style="color: red">* 输入原密码</span>
+								</span>
+							</div>
+							<div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">新密码</label>
+								<div class="col-sm-6">
+									<input type="password" name="newpassword" id="newpassword" placeholder="输入新密码" class="form-control">
+								</div>
+								<span class="help-inline col-sm-4">
+									<span class="middle" style="color: red">* 新密码位数不能少于6位或者大于15位</span>
+								</span>
+							</div>
+							<div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">确认新密码</label>
+								<div class="col-sm-6">
+									<input type="password" name="repassword" id="repassword" placeholder="确认新密码" class="form-control">
+								</div>
+								<span class="help-inline col-sm-4">
+									<span class="middle" style="color: red">* 确认新密码</span>
+								</span>
+							</div>
+							<div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<div class="col-sm-4 col-sm-offset-2">
+									<button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> 保存</button>&nbsp;&nbsp;&nbsp;
+									<a class="btn btn-danger" href="{:U('Index/index')}"><i class="fa fa-close"></i> 取消</a>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<include file="Public:footer" />
+	</body>
+</html>
+

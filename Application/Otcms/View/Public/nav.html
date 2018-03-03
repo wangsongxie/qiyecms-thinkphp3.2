@@ -1,0 +1,88 @@
+    <div id="wrapper">
+        <!--左侧导航开始-->
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="nav-close"><i class="fa fa-times-circle"></i>
+            </div>
+            <div class="sidebar-collapse">
+                <ul class="nav" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element">
+                            <span><img alt="image" class="img-circle" src="__ROOT__/Uploads/{$_SESSION['admin_img']}" onerror="this.src='__PUBLIC__/Admin/img/touxiang_default.gif'" width="70px" height="70px"/></span>
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="clear">
+                               <span class="block m-t-xs"><strong>{$_SESSION['admin_realname']}</strong></span>
+                                <span class="text-muted text-xs block">
+                                    {$admin_group.title}
+                                	<b class="caret"></b></span>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                <li><a class="J_menuItem" href="{:U('Sys/pwd')}">修改密码</a></li>
+                                <li><a href="javascript:;" id="cache">清除缓存</a></li>
+                                <li class="divider"></li>
+                                <li><a class="logout" href="javascript:;">退出系统</a></li>
+                            </ul>
+                        </div>
+                        <div class="logo-element">OT<sup>+</sup></div>
+                    </li>
+                    <li>
+                        <a href="{:U('index/index')}"><i class="fa fa-home"></i> <span class="nav-label">后台首页</span></a>
+                    </li>
+                    
+                    <script>
+                    	$(".dropdown-menu").mouseleave(function(){
+							$(".dropdown").click();	
+						})
+                    </script>
+
+<php>
+use Common\Controller\AuthController;
+use Think\Auth;
+		$m = M('auth_rule');
+		$field = 'id,name,title,css';
+	    $data = $m->field($field)->where('pid=0 AND status=1')->order('sort')->select();	   
+	    $auth = new Auth();
+	    //没有权限的菜单不显示
+    	foreach ($data as $k=>$v){
+    		if(!$auth->check($v['name'], $_SESSION['aid']) && $_SESSION['aid'] != 1){
+    			unset($data[$k]);
+    		}
+	    }
+
+</php>
+
+	<foreach name="data" item="v">
+			<li class="<if condition="CONTROLLER_NAME eq $v['name']">active</if>"><!--open代表打开状态-->
+				<a href="#">
+					<i class="menu-icon fa {$v.css}"></i>
+					<span class="nav-label">{$v.title}</span><span class="fa arrow"></span>
+				</a>
+
+			<ul class="nav nav-second-level">
+    <php>
+		$m = M('auth_rule');
+	    $dataa = $m->where(array('pid'=>$v['id'],'status'=>1))->order('sort')->select();
+    	foreach ($dataa as $kk=>$vv){
+    		if(!$auth->check($vv['name'], $_SESSION['aid']) && $_SESSION['aid'] != 1){
+    			unset($dataa[$kk]);
+    		}
+	    }
+	
+    </php>
+		    <foreach name="dataa" item="j">
+					<li>
+						<a class="J_menuItem" href="{:U($j['name'],array('se'=>$j['id']))}">{$j.title}</a>						
+					</li>
+			</foreach>
+			</ul>
+		</li>
+	</foreach>
+
+        </ul>
+    </div>
+</nav>
+
+
+
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+    <include file="Public:top" />

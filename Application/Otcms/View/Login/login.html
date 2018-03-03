@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta charset="utf-8" />
+	<title>网站管理台</title>
+    <link href="__PUBLIC__/Admin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/Admin/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">   
+    <link href="__PUBLIC__/Admin/css/style.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/Admin/css/animate.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/Admin/css/login.min.css" rel="stylesheet">      
+    <link href="__PUBLIC__/Admin/login/supersized.css" rel="stylesheet">
+    <!--极验验证需要引入的两个JS-->
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <script src="http://static.geetest.com/static/tools/gt.js"></script>
+
+    <style>
+     
+        .inp {
+            border: 1px solid gray;
+            padding: 0 10px;
+            width: 200px;
+            height: 30px;
+            font-size: 18px;
+        }
+        
+        #embed-captcha {
+            width: 250px;
+            margin: 0 auto;
+        }
+        .show {
+            display: block;
+        }
+        .hide {
+            display: none;
+        }
+        #notice {
+            color: red;
+        }
+        /* 以下遮罩层为demo.用户可自行设计实现 */
+        #mask {
+            display: none;
+            position: fixed;
+            text-align: center;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            overflow: auto;
+        }
+        /* 可自行设计实现captcha的位置大小 */
+        .popup-mobile {
+            position: relative;
+        }
+        #popup-captcha-mobile {
+            position: fixed;
+            display: none;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            z-index: 9999;
+        }
+    </style>
+
+    <style type="text/css">
+    	html { overflow-y: hidden; }
+    </style>
+	<script type="text/javascript">
+        var url='__PUBLIC__';       
+    </script>
+
+	</head>
+<body  style="font-size: 14px;">
+    <div class="signinpanel">
+        <div class="row">
+            <div class="col-sm-7">
+                <div class="signin-info" style="color:#ffffff">
+                    <div class="logopanel m-b">
+                        <h1>网站管理台</h1>
+                    </div>
+                    <div class="m-b"></div>
+                    <h4>OTCMS V3.2.3 Web Content Management Center.</h4>
+                    <ul class="m-b" style=" font-size:12px;">
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> 速度、质量、成效</li>
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> 文化决定格调,品质铸造人生</li>
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> 创新引领未来</li>
+                    </ul>
+                    <strong>需要帮助？ <a href="#">点这里»</a></strong>
+                </div>
+            </div>
+
+            <div class="col-sm-5" style="color:#ffffff">
+                <form id="runlogin" name="runlogin" method="post" action="{:U('runlogin')}">
+                    
+                    <h4 class="no-margins">登录：</h4>
+                    <p class="m-t-md">Powered by OTCMS V3.2.3</p>
+                    <input type="text" class="form-control uname" name="admin_username" id="admin_username" placeholder="用户名" />
+                    <input type="password" class="form-control pword m-b" name="admin_pwd" id="admin_pwd" placeholder="密码" />
+                   <input type="text" name="code" class="form-control pword" id="code" placeholder="验证码" oncontextmenu="return false" onpaste="return false"  style="width: 60%;" />
+                        <img class="verifyimg reloadverify" alt="点击切换" src="{:U('verify')}" height="35px"; style="margin-top:-35px;width:80px;float:right;border:1px solid #cececf; " />
+                    <br/> 
+
+                    <a href="" data-toggle="modal" data-target="#forget">忘记密码了？</a>                
+                    <button type="submit" class="btn btn-primary btn-block">登&nbsp;&nbsp;&nbsp;录</button>															
+                </form>
+            </div>
+        </div>
+        
+    </div>
+ <script>
+    var handlerEmbed = function (captchaObj) {
+        $("#embed-submit").click(function (e) {
+            var validate = captchaObj.getValidate();
+            if (!validate) {
+                $("#notice")[0].className = "show";
+                setTimeout(function () {
+                    $("#notice")[0].className = "hide";
+                }, 2000);
+                e.preventDefault();
+            }
+        });
+        // 将验证码加到id为captcha的元素里
+        captchaObj.appendTo("#embed-captcha");
+        captchaObj.onReady(function () {
+            $("#wait")[0].className = "hide";
+        });
+        // 更多接口参考：http://www.geetest.com/install/sections/idx-client-sdk.html
+    };
+    $.ajax({
+        // 获取id，challenge，success（是否启用failback）
+        url: "{:U('Admin/Login/getVerify',array('t'=>time()))}", // 加随机数防止缓存
+        type: "get",
+        dataType: "json",
+        success: function (data) {
+            // 使用initGeetest接口
+            // 参数1：配置参数
+            // 参数2：回调，回调的第一个参数验证码对象，之后可以使用它做appendTo之类的事件
+            initGeetest({
+                gt: data.gt,
+                challenge: data.challenge,
+                product: "float", // 产品形式，包括：float，embed，popup。注意只对PC版验证码有效
+                offline: !data.success // 表示用户后台检测极验服务器是否宕机，一般不需要关注
+            }, handlerEmbed);
+        }
+    });
+</script>        
+
+
+<!-- 找回密码 -->
+<div class="modal inmodal" id="forget" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content animated bounceInRight">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                	<span aria-hidden="true">&times;</span><span class="sr-only">关闭</span>
+                </button>
+	                <i class="fa fa-laptop modal-icon"></i>
+	                <h4 class="modal-title">找回密码</h4>
+                </div>
+                <form name="runemail" id="runemail" action="{:U('runemail')}" method="post">
+	                <div class="modal-body">
+	                    <div class="form-group">
+	                    <label>Email</label> 
+	                    <input type="email"  name="email" id="email" placeholder="输入您注册时候填写的邮箱" class="form-control"></div>
+	                </div>
+	                <div class="modal-footer">
+	                    <button type="submit" class="btn btn-primary">提 交</button>
+	                    <button type="button" class="btn btn-danger" data-dismiss="modal">关 闭</button>
+	                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="__PUBLIC__/Admin/js/jquery.min.js?v=2.1.4"></script>
+    <script src="__PUBLIC__/Admin/login/supersized.3.2.7.min.js" ></script>
+    <script src="__PUBLIC__/Admin/login/supersized-init.js" ></script>      
+    <script src="__PUBLIC__/Admin/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/Admin/js/jquery.form.js"></script>
+	<script src="__PUBLIC__/Common/layer/layer.js"></script>
+	<!-- <script src="__PUBLIC__/Admin/js/content.min.js?v=1.0.0"></script> -->
+	<script type="text/javascript">
+
+    $(function(){
+    $(".reloadverify").click(function(){
+        changeverify();            
+	    });      
+	}) 
+
+    function changeverify(){
+    var verifyimg = $(".verifyimg").attr("src");
+     if( verifyimg.indexOf('?')>0){
+         $(".verifyimg").attr("src", verifyimg+'&random='+Math.random());
+     }else{
+         $(".verifyimg").attr("src", verifyimg.replace(/\?.*$/,'')+'?'+Math.random());
+    }
+}
+
+$(function(){
+	$('#runlogin').ajaxForm({
+		beforeSubmit: logcheckForm, // 此方法主要是提交前执行的方法，根据需要设置
+		success: logcomplete, // 这是提交后的方法
+		dataType: 'json'
+	});
+	
+	function logcheckForm(){
+		if( '' == $.trim($('#admin_username').val())){
+			layer.msg('请输入登录用户名', {icon: 5,time:2000}, function(index){
+ 			layer.close(index);
+			$('#member_list_email').focus(); 
+			});
+			return false;
+		}
+ 
+		if( '' == $.trim($('#admin_pwd').val())){
+			layer.msg('请输入登录密码', {icon: 5,time:2000}, function(index){
+ 			layer.close(index);
+			$('#member_list_email').focus(); 
+			});
+			return false;
+		}
+
+		 if( '' == $.trim($('#code').val())){
+	        layer.msg('请输入验证码', {icon: 5,time:1000}, function(index){
+	       layer.close(index);
+	        $('#code').focus(); 
+	       });
+	     return false;
+	    }
+
+ }
+	function logcomplete(data){
+		if(data.status==1){
+			layer.msg(data.info, {icon: 6,time:1000}, function(index){
+ 			layer.close(index);
+			window.location.href="{:U('Index/index')}";
+			});
+		}else{
+			layer.msg(data.info, {icon: 5,time:3000});
+			$(".reloadverify").click();
+			return false;	
+		}
+
+	}
+ 
+});
+
+//找回密码，发送邮件
+$(function(){
+	$('#runemail').ajaxForm({
+		beforeSubmit: emailcheckForm, // 此方法主要是提交前执行的方法，根据需要设置
+		success: emailcomplete, // 这是提交后的方法
+		dataType: 'json'
+	});
+	
+	function emailcheckForm(){
+		if( '' == $.trim($('#email').val())){
+			layer.alert('邮件不能为空', {icon: 5,time:3000});
+			$('#email').focus(); 
+			return false;
+		}
+
+ }
+	function emailcomplete(data){
+		if(data.status==1){
+			layer.alert(data.info, {icon: 6});
+			return false;
+		}else{
+			layer.alert(data.info, {icon: 5,time:3000});
+			return false;	
+		}
+	}
+ 
+});
+
+
+</script>
+</body>
+
+</html>

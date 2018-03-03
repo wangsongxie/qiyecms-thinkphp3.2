@@ -1,0 +1,34 @@
+<include file="Public:header" />
+
+<!--main start-->
+<div class="main_bg cl">
+	<div class="content">
+		<div class="type fl">
+			<img src="__PUBLIC__/style/images/main02.jpg" class="fl">
+			<p class="fl">
+							<volist name='pcate' id='vo'>
+                            <a href="{:U(Article/index,array('id'=>$vo['id']))}">·{$vo.cate_name}</a>
+							</volist>
+                         </p>
+		</div>
+		<div class="path fr"><img src="__PUBLIC__/style/images/main03.jpg">您的当前位置：<a href="index.php">首页</a> > {$cate['cate_name']}</div>
+		<div class="m_news cl">
+			<ul>
+					<volist name='artlist' id='art'>
+              				<li>
+					<a href="{:U(Article/show,array('id'=>$art['a_id']))}"><div class="fl"><img src="/qiye/Uploads/{$art.photo}" width="275" height="199"></div></a>
+					<div class="fr m_news_text">
+						<span><img src="__PUBLIC__/style/images/time.jpg">{$art.create_time|date='Y-m-d',###}</span>
+						<a href="{:U(Article/show,array('id'=>$art['a_id']))}">{$art.a_title}</a>
+						<p>{$art.a_remark}...</p>
+					</div>
+					<div class="cl"></div>
+				</li>
+				</volist>
+						</ul>
+		</div>
+		<div class="page cl tc">{$page}</div>
+	</div>
+</div>
+<!--main end-->
+<include file="Public:footer" />

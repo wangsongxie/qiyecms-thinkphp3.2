@@ -1,0 +1,123 @@
+﻿<include file="Public:header" />
+
+<!--index start-->
+<div class="about_bg">
+	<div class="content rel">
+		<div class="menu">
+			<ul>
+				<li class="bg1"><a href="{:U('Said/index',array('id'=>6))}"><img src="__PUBLIC__/style/images/menu1.png"><p>关于我们</p></a></li>
+				<li class="bg2"><a href="{:U('Article/index',array('id'=>10))}"><img src="__PUBLIC__/style/images/menu2.png"><p>最新动态</p></a></li>
+				<li class="bg3"><a href="{:U('Article/index',array('id'=>11))}"><img src="__PUBLIC__/style/images/menu3.png"><p>甜品展示</p></a></li>
+				<li class="bg4"><a href="{:U('Said/index',array('id'=>7))}"><img src="__PUBLIC__/style/images/menu4.png"><p>联系我们</p></a></li>
+			</ul>
+			<div class="cl"></div>
+		</div>
+		<div class="about">
+			<div class="tit_bg1">
+				<div class="fl tr tit">
+					<span class="en_tit">about us</span>
+					<span class="ch_tit">关于我们</span>
+				</div>
+				<div class="fr letter">A</div>
+			</div>
+			<div class="about_txt tc cl"><div align="justify">
+	一直以来，美心烘焙通过严格的生产规范与供应链管理来保持始终如一的高品质。用爱为消费者制作“健康、营养、绿色、安全、美味”的产品和高品质的服务，是我们一贯秉承的宗旨。作为一个颇具名气的西点品牌，我们不仅有着传统产品的好味道，还注重将食品与艺术融为一体，所制造的每款产品都注入了设计制作师的爱心和情感，并赋予了生命。20世纪初，小镇上的de Laharpe大叔为了安慰失恋的孙女，让她发现和体验世间更多的爱，于是开了一家叫“L'espace heureux”的面包房，法语意为“幸福空间”。美味甜蜜的甜点、温馨惬意的布置、清新舒缓的音乐，这个充斥着满满爱意的幸福空间，仿佛一个热情又充满魅惑的少女，令人迷恋陶醉。
+</div></div>
+			<div class="tc"><img src="__PUBLIC__/style/images/20161125093850_61185.jpg" alt="" width="536" height="396" /></div>
+		</div>
+	</div>
+</div>
+<div class="news_bg">
+	<div class="content">
+		<div class="tit_bg2">
+			<div class="fl tr tit">
+				<span class="en_tit">news</span>
+				<span class="ch_tit" style="color: #fff;">最新动态</span>
+			</div>
+			<div class="fr letter" style="color: #fa6374;">N</div>
+		</div>
+		<div class="news cl">
+			<div id="demo" style="overflow:hidden;width:1200px;">
+	<table border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td id="demo1"><table width="1200" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+                    
+                      					<!--循环开始-->
+						<volist name='news' id='v'>
+						<td align="center" style="padding-left:10px;"><table width="130" border="0" cellspacing="0" cellpadding="0" style="margin-left:10">
+								<tr>
+									<td><a href="{:U('Article/show',array('id'=>$v['a_id']))}"><img src="/qiye/Uploads/{$v.photo}" width="275" height="199" /></a></td>
+								</tr>
+								<tr>
+									<td valign="top" class="news_txt"><a href="{:U('Article/show',array('id'=>$v['a_id']))}">{$v.a_title}</a><p>{$v.a_remark}...</p><span><img src="__PUBLIC__/style/images/time.jpg">{$v.create_time|date='Y-m-d',###}</span></td>
+								</tr>
+						</table></td>
+						</volist>
+											<!--循环结束-->
+					</tr>
+				</table></td>
+			<td id="demo2"></td>
+		</tr>
+	</table>
+</div>
+<script> 
+var speed=30 
+demo2.innerHTML=demo1.innerHTML 
+function Marquee(){ 
+if(demo2.offsetWidth-demo.scrollLeft<=0) 
+demo.scrollLeft-=demo1.offsetWidth 
+else{ 
+demo.scrollLeft++ 
+} 
+} 
+var MyMar=setInterval(Marquee,speed) 
+demo.onmouseover=function() {clearInterval(MyMar)} 
+demo.onmouseout=function() {MyMar=setInterval(Marquee,speed)} 
+</script>
+		</div>
+	</div>
+</div>
+<div class="search_bg">
+	<div class="content">
+		<h3 class="tc">欢迎搜索我们的产品</h3>
+        <script>
+		function check_seachkey(){
+			var key=$("#textfield").val();
+			if(!key){
+				alert("请输入查询的关键词！！！");
+				return false;
+				}else{
+					return true;
+					}
+			} 
+	</script>
+        <form action="index.php?p=seach_list" method="post" onsubmit="return check_seachkey()">
+		<div class="search">
+			<input name="key" type="text" class="ss fl" id="textfield" placeholder="请输入产品名称"><input type="submit" value="GO" class="ss_btn fl" style="cursor:pointer">
+		</div>
+        </form>
+	</div>
+</div>
+<div class="pro_bg">
+	<div class="content">
+		<div class="tit_bg1">
+			<div class="fl tr tit">
+				<span class="en_tit">products</span>
+				<span class="ch_tit">甜品展示</span>
+			</div>
+			<div class="fr letter">P</div>
+		</div>
+		<div class="pro cl">
+			<ul>
+				<volist name='tian' id='vo'>
+             				<li><a href="{:U('Article/show',array('id'=>$vo['a_id']))}"><img src="/qiye/Uploads/{$vo.photo}" width="380" height="292"><p>{$vo.a_title}</p></a></li>
+				</volist>
+			</ul>
+			<div class="cl"></div>
+		</div>
+	</div>
+</div>
+
+<include file="Public:footer" />
+

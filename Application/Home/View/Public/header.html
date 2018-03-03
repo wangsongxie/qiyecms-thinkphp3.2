@@ -1,0 +1,51 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="__PUBLIC__/style/css/webstyle.css" rel="stylesheet" type="text/css" />
+<title>{$config.sys_title}<</title>
+<meta name="keywords" content="{$config.sys_key}" >
+<meta name="description" content="{$config.sys_des}"/>
+<script src="__PUBLIC__/style/js/jquery-1.11.3.min.js"></script>
+<script src="__PUBLIC__/style/js/unslider-min.js"></script>
+</head>
+
+<body>
+<!--header start-->
+<div class="top_bg">
+	<div class="content">
+		<div class="logo fl"><img src="__PUBLIC__/style/images/19371_20161125172200.png"></div>
+		<div class="nav fr">                                                
+			<ul>
+			
+                            <li><a href="/">网站首页</a></li>
+							<li><a href="{:U('Said/index',array('id'=>6))}">关于我们</a></li>
+                            <li><a href="{:U('Article/index',array('id'=>10))}">最新动态</a></li>
+                            <li><a href="{:U('Article/index',array('id'=>11))}">甜品展示</a></li>
+                            <li><a href="{:U('Article/index',array('id'=>12))}">人才招聘</a></li>
+                            <li><a href="{:U('Said/index',array('id'=>8))}">在线留言</a></li>
+                            <li><a href="{:U('Said/index',array('id'=>7))}">联系我们</a></li>
+              			</ul>
+		</div>
+	</div>
+</div>
+<div class="banner">
+    <ul>
+			<article:list type="CarouselList" limit="3" order="orderby asc" where="state = '1'">
+           <li><img src="/qiye/Uploads{$v.img}" /></li>
+		   </article:list>
+         </ul>
+</div>
+<script>
+$(function(){
+  $('.banner').unslider({
+    dots: false,//点导航
+    autoplay: true,//自动播放
+    speed:400,//播放速度
+    delay:5000,//轮播间隔
+    arrows: false,//是否显示左右箭头
+    fluid: true,//是否支持响应式
+  });
+});
+</script>
+<!--header end-->

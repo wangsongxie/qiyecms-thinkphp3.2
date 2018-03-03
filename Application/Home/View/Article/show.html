@@ -1,0 +1,29 @@
+<include file="Public:header" />
+
+<!--main start-->
+<div class="main_bg cl">
+	<div class="content">
+		<div class="type fl">
+			<img src="__PUBLIC__/style/images/main02.jpg" class="fl">
+			<p class="fl">
+							
+                            <volist name='pcate' id='vo'>
+                            <a href="{:U(Article/index,array('id'=>$vo['id']))}">·{$vo.cate_name}</a>
+							</volist>
+                         </p>
+		</div>
+		<div class="path fr"><img src="__PUBLIC__/style/images/main03.jpg">您的当前位置：<a href="index.php">首页</a> > {$cate['cate_name']}</div>
+		<div class="m_news cl">
+			 <p style="text-align:center; font-family:SimSun;font-size:20px;line-height:2;">{$detail.a_title}</p>
+                                       {$detail.a_content}
+                        
+			<div class="cl"></div>
+		</div>
+		<div style="margin-top:30px; font-size:16px;">
+          上一篇：<empty name="pre">没有文章<else /><a href="{:U('Article/show',array('id'=>$pre['a_id']))}"><font color='#000'>{$pre.a_title}</font></a> </empty>  <br>
+                 下一篇：<empty name="nex">没有文章<else /><a href="{:U('Article/show',array('id'=>$nex['a_id']))}"><font color='#000'>{$nex.a_title}</font></a> </empty>         </div>
+	</div>
+</div>
+<!--main end-->
+
+<include file="Public:footer" />

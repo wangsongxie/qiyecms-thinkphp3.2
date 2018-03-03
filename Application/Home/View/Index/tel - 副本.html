@@ -1,0 +1,209 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="index, follow" />
+<title>选号码 - 鸿通400电话 -做400电话领导者！</title>
+<meta name="application-name" content="欧腾传媒" />
+<meta name="Author" content="OuTengMedia" />
+<meta name="Copyright" Content="欧腾传媒。OuTengMedia All Rights Reserved." />
+<link href="__PUBLIC__/400/css/index.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="__PUBLIC__/400/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/400/js/jquery-2.1.1.js"></script>
+</head>
+
+<body>
+<!--header-->
+<div class="header">
+
+
+<div class="main">
+<div class="left_logo"><img src="__PUBLIC__/400/images/logo.png" alt="鸿通400电话 -做400电话领导者！" title="鸿通400电话 -做400电话领导者！"></div>
+<div class="right_nav">
+
+<ul>
+<li><a href="#">首页</a></li>
+<li><a href="#">资费套餐</a></li>
+<li><a href="#" class="on">选号码</a></li>
+<li><a href="#">选择我们</a></li>
+<li><a href="#">帮助中心</a></li>
+</ul>
+
+</div>
+</div>
+
+
+<!--banner-->
+<div class="banner2"></div>
+<!--banner END-->
+</div>
+<!--header END-->
+
+
+
+<!--probation-->
+<div class="probation" style="margin-top:-40px;">
+	<div class="main_form">
+		<div class="mf_title">申请免费试用400电话</div>
+        <div class="mf_content">
+        <p><input name="" type="text" placeholder="请输入姓名"></p>
+        <p><input name="" type="text" placeholder="请输入电话"></p>
+        <p><input name="" type="text" placeholder="请输入验证码" style="width:100px;"><span><a href="javascript:;"><img src="__PUBLIC__/400/images/code.png"></a></span></p>
+        <p style="margin-top:30px;"><input name="" type="button" class="button" value="立即申请"></p>
+        </div>
+		</div>
+	</div>
+<!--probation END-->
+<div class="custom_2">
+<p><span>办理流程</span>挑选号码 - 选择套餐 - 提交资料 - 开通成功。</p>
+<p><span>申请条件</span>个体户：营业执照、法人身份证复印件
+           公司：营业执照、法人身份证复印件
+</p>
+</div>
+
+<!--pick_search-->
+<div class="pick_search">
+<div class="tel"><input type="text" maxlength="1" value="4" id="num1"><input type="text" maxlength="1" value="0" id="num2"><input type="text" maxlength="1" value="0" id="num3"><input type="text" maxlength="1" id="num4"><input type="text" maxlength="1" id="num5"><input type="text" maxlength="1" id="num6"><input type="text" maxlength="1" id="num7"><input type="text" maxlength="1" id="num8"><input type="text" maxlength="1" id="num9"><input type="text" maxlength="1" id="num10"></div>
+<div class="describe"><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=642327979&amp;site=qq&amp;menu=yes" target="_blank">咨询在线客服</a></div>
+<div class="button"><input name="" type="button" id="but" value="搜   索"></div>
+</div>
+<!--pick_search-->
+<!--search_list-->
+<div class="search_list">
+<div class="condition">
+<dl><dt>顶级靓号</dt><dd><a href="javascript:;" onClick="cha('AAAA');" class="on">AAAA</a><span>|</span><a href="javascript:;">ABCABC</a><span>|</span><a href="javascript:;">ABCD</a><span>|</span><a href="javascript:;">ABABAB</a><span>|</span><a href="javascript:;">AABBCC</a><span>|</span><a href="javascript:;">AABAA</a><span>|</span><a href="javascript:;">AAAAA</a><span>|</span><a href="javascript:;">AAABBB</a></dd></dl>
+<dl><dt>超级靓号</dt><dd><a href="javascript:;">ABBB</a><span>|</span><a href="javascript:;">AABB</a><span>|</span><a href="javascript:;">AABCC</a></dd></dl>
+</div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="list">
+  <tr>
+	<volist name='tel' id='vo'>
+    <td align="center" valign="middle">{$vo.tel}<if condition='$vo["status"] eq 1'><span class="out">靓</span></if></td>
+	</volist>
+  </tr>
+  <tr>
+    <td align="center" valign="middle">400-162-0531<span class="out">靓</span></td>
+    <td align="center" valign="middle">400-162-0531</td>
+    <td align="center" valign="middle">400-162-0531</td>
+    <td align="center" valign="middle">400-162-0531</td>
+    <td align="center" valign="middle">400-162-0531</td>
+  </tr>
+  <tr>
+    <td align="center" valign="middle">400-162-0531<span class="out">靓</span></td>
+    <td align="center" valign="middle">400-162-0531</td>
+    <td align="center" valign="middle">400-162-0531</td>
+    <td align="center" valign="middle">400-162-0531</td>
+    <td align="center" valign="middle">400-162-0531</td>
+  </tr>
+ <tbody id="article_list"></tbody>
+</table>
+<div id="AjaxPage" class="public_page"></div>
+<div id="allpage" class="public_page"></div>
+<!--<div class="public_page"><a href="javascript:;" class="on">1</a><a href="javascript:;">2</a><a href="javascript:;">3</a><a href="javascript:;">4</a><a href="javascript:;">5</a><a href="javascript:;">下一页</a></div>
+-->
+
+</div>
+
+<script>
+var URL = '__URL__';
+$(function(){
+	
+	$('#but').click(function(){
+		//alert(num8);
+		$.ajax({
+			url:URL + '/search',
+			type:'post',
+			datatype:'json',
+			data:{num1:$('#num1').val(),num2:$('#num2').val(),num3:$('#num3').val(),num4:$('#num4').val(),num5:$('#num5').val(),num6:$('#num6').val(),num7:$('#num7').val(),num8:$('#num8').val(),num9:$('#num9').val(),num10:$('#num10').val()},
+			success:function(data){
+				if(data.tel){
+					alert('您查询的电话为：' + data.tel + ' 级别为' + data.types);
+				}else{
+					alert('您查询的电话目前还没有收录！');
+				}
+				
+			},
+		});
+	});
+});
+	
+</script>
+<script src="__PUBLIC__/Common/layer/layer.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Common/laytpl/laytpl.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/Common/laypage/laypage.js"></script>
+
+	<script type="text/javascript">
+	//laypage分页
+	function Ajaxpage(curr){
+		var caitid="{$testcatid}";
+		var val="{$testval}";
+		$.post('{:U("Article/tel")}', {
+	        page: curr || 1,val:val,catid:caitid
+	    }, function(data){
+			if(data.list=null){
+				$("#article_list").html('<center style="margin-top:300px;font-size:15px;">没有数据</center>');
+			}else{
+				article_list(data.info);
+				laypage({
+					cont: $('#AjaxPage'),//容器。值支持id名、原生dom对象，jquery对象,
+					pages:'{$allpage}',//总页数
+					skip: true,//是否开启跳页
+					skin: '#1AB5B7',
+					curr: curr || 1,
+					groups: 4,//连续显示分页数
+					jump: function(obj, first){
+
+						if(!first){
+							Ajaxpage(obj.curr)
+						}
+						$('#allpage').html('第'+ obj.curr +'页，共'+ obj.pages +'页');
+					}
+				});
+			}
+		});
+	}
+	Ajaxpage();
+
+//接收异步获取的数据渲染到模板
+function article_list(list){
+	var tpl = document.getElementById('arlist').innerHTML;
+	laytpl(tpl).render(list, function(html){
+		document.getElementById('article_list').innerHTML = html;
+	});
+}
+
+
+
+
+
+//推荐
+function tuijian(val){
+	$.post('{:U("article_tuijian")}',
+	{id:val},
+	function(data){
+	var $v=val;
+		if(data.status){
+			if(data.info=='取消推荐'){
+				var a='<span class="label label-warning">否</span>'
+				$('#tj'+val).html(a);
+				layer.msg(data.info,{icon:4});
+				return false;
+			}else{
+				var b='<span class="label label-success">是</span>'
+				$('#tj'+val).html(b);
+				layer.msg(data.info,{icon:1});
+				return false;
+			}
+
+		}
+	});
+	return false;
+}
+
+
+
+</script>
+<!--search_list END-->
+<div class="footer"><a href="#">关于我们</a><span>|</span><a href="#">400介绍</a><span>|</span><a href="#">资费套餐</a><span>|</span><a href="#">选号码</a><span>|</span><a href="#">帮助中心</a><p>Copyright © 2010 - 2015 [鸿通400] HT400.CN All Rights Reserved .</p></div>
+</body>
+<script type="text/javascript" src="__PUBLIC__/400/js/index.js"></script>
+</html>

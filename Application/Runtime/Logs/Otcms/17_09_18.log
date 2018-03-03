@@ -1,0 +1,263 @@
+[ 2017-09-18T15:07:10+08:00 ] ::1 /qiye/index.php?s=/Otcms/Sys/put/se/241.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] Undefined variable: map E:\wamp\www\qiye\Application\Otcms\Controller\SysController.class.php 第 618 行.
+NOTIC: [8] Undefined variable: map E:\wamp\www\qiye\Application\Otcms\Controller\SysController.class.php 第 624 行.
+NOTIC: [8] Undefined index: create_time E:\wamp\www\qiye\Application\Otcms\Controller\SysController.class.php 第 628 行.
+NOTIC: [8] Undefined index: create_time E:\wamp\www\qiye\Application\Otcms\Controller\SysController.class.php 第 628 行.
+NOTIC: [8] Undefined index: create_time E:\wamp\www\qiye\Application\Otcms\Controller\SysController.class.php 第 628 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.050003s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.050003s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003001s ]
+
+[ 2017-09-18T15:07:10+08:00 ] ::1 /qiye/index.php?s=/Otcms/Sys/put.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+NOTIC: [8] Undefined variable: map E:\wamp\www\qiye\Application\Otcms\Controller\SysController.class.php 第 618 行.
+NOTIC: [8] Undefined variable: map E:\wamp\www\qiye\Application\Otcms\Controller\SysController.class.php 第 624 行.
+NOTIC: [8] Undefined index: create_time E:\wamp\www\qiye\Application\Otcms\Controller\SysController.class.php 第 628 行.
+NOTIC: [8] Undefined index: create_time E:\wamp\www\qiye\Application\Otcms\Controller\SysController.class.php 第 628 行.
+NOTIC: [8] Undefined index: create_time E:\wamp\www\qiye\Application\Otcms\Controller\SysController.class.php 第 628 行.
+
+[ 2017-09-18T15:08:06+08:00 ] ::1 /qiye/index.php?s=/Otcms/Sys/put/se/241.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined variable: map E:\wamp\www\qiye\Application\Otcms\Controller\SysController.class.php 第 618 行.
+NOTIC: [8] Undefined variable: map E:\wamp\www\qiye\Application\Otcms\Controller\SysController.class.php 第 624 行.
+NOTIC: [8] Undefined index: create_time E:\wamp\www\qiye\Application\Otcms\Controller\SysController.class.php 第 628 行.
+NOTIC: [8] Undefined index: create_time E:\wamp\www\qiye\Application\Otcms\Controller\SysController.class.php 第 628 行.
+NOTIC: [8] Undefined index: create_time E:\wamp\www\qiye\Application\Otcms\Controller\SysController.class.php 第 628 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.029002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.029002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2017-09-18T15:08:06+08:00 ] ::1 /qiye/index.php?s=/Otcms/Sys/put.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined variable: map E:\wamp\www\qiye\Application\Otcms\Controller\SysController.class.php 第 618 行.
+NOTIC: [8] Undefined variable: map E:\wamp\www\qiye\Application\Otcms\Controller\SysController.class.php 第 624 行.
+NOTIC: [8] Undefined index: create_time E:\wamp\www\qiye\Application\Otcms\Controller\SysController.class.php 第 628 行.
+NOTIC: [8] Undefined index: create_time E:\wamp\www\qiye\Application\Otcms\Controller\SysController.class.php 第 628 行.
+NOTIC: [8] Undefined index: create_time E:\wamp\www\qiye\Application\Otcms\Controller\SysController.class.php 第 628 行.
+
+[ 2017-09-18T15:12:45+08:00 ] ::1 /qiye/index.php/Otcms/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.094005s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.094005s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.004000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004000s ]
+
+[ 2017-09-18T15:12:46+08:00 ] ::1 /qiye/index.php?s=/Otcms/Index/indexpage.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: getweather E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\74a9864a90c7064da28bdb0c11e9d5e7.php 第 92 行.
+NOTIC: [8] Undefined variable: getweather E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\74a9864a90c7064da28bdb0c11e9d5e7.php 第 93 行.
+NOTIC: [8] Undefined variable: getweather E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\74a9864a90c7064da28bdb0c11e9d5e7.php 第 94 行.
+NOTIC: [8] Undefined variable: getweather E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\74a9864a90c7064da28bdb0c11e9d5e7.php 第 96 行.
+NOTIC: [8] Undefined variable: getweather E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\74a9864a90c7064da28bdb0c11e9d5e7.php 第 97 行.
+NOTIC: [8] Undefined variable: getweather E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\74a9864a90c7064da28bdb0c11e9d5e7.php 第 98 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.080004s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.080004s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004001s ]
+
+[ 2017-09-18T15:13:03+08:00 ] ::1 /qiye/index.php?s=/Otcms/Sys/admin_rule/se/10.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.067004s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.067004s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.005001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005001s ]
+
+[ 2017-09-18T15:43:41+08:00 ] ::1 /qiye/index.php?s=/Otcms/Sys/admin_rule_add.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.005000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005000s ]
+
+[ 2017-09-18T15:43:43+08:00 ] ::1 /qiye/index.php?s=/Otcms/Sys/admin_rule.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' E:\wamp\www\qiye\Application\Runtime\Cache\Otcms\038740338097156e57183a89319d81ab.php 第 175 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.062004s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.062004s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+

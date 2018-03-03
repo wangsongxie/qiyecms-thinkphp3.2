@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="UTF-8">
+    <title>js datatimepicker</title>
+    <link rel="stylesheet" type="text/css" href="jquery.datetimepicker.css"/>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="jquery.datetimepicker.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var ops = {
+                format: 'Y-m-d H:i:s',
+                lang: 'ch',
+                step: 20
+            };
+            $('#dtp').datetimepicker(ops);
+        });
+    </script>
+</head>
+<body>
+<input type="text" id="dtp"/>
+
+
+</body>
+</html>

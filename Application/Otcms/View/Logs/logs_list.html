@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<include file="Public:header" />
+	<include file="Public:page_css" />
+
+	<body class="gray-bg wrapper wrapper-content">
+
+	
+		<link rel="stylesheet" type="text/css" media="all" href="__PUBLIC__/sldate/daterangepicker-bs3.css" />
+		<script src="__PUBLIC__/Admin/js/jquery.min.js"></script>	
+		<script type="text/javascript" src="__PUBLIC__/sldate/moment.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/sldate/daterangepicker.js"></script>
+		<script type="text/javascript">
+               $(document).ready(function() {
+                  $('#reservation').daterangepicker(null, function(start, end, label) {
+                    console.log(start.toISOString(), end.toISOString(), label);
+                  });
+               });
+        </script>
+        
+	
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-title">
+						<h5><i class="fa fa-tasks"></i> 操作日志</h5>
+					</div>
+					<div class="ibox-content">
+                    
+                    <div class="row">
+						    				  
+			    <form name="admin_list_sea" class="form-search" method="post" action="__URL__/logs_list">
+					<div  class="col-sm-2">
+						<div class="input-group" style="width: 240px">	
+						<span class="input-group-addon"><i class="fa fa-calendar"></i></span>							
+							<input type="text" class="form-control" name="reservation" id="reservation" class="sl-date" value="{$s}" placeholder="点击选择日期范围"/>	
+						</div>
+					</div>
+					<div class="col-sm-3">
+						<div class="input-group">
+							<input type="text" name="key" id="key" class="form-control" value="{$val}" placeholder="输入需查询的用户名" />	
+							<span class="input-group-btn"> 
+				            	<button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> 搜索</button> 
+				            </span>
+						</div>
+					</div>
+				</form>			   			    
+			
+		</div>		
+        
+        
+        
+        <div class="hr-line-dashed"></div>
+					<form id="leftnav" name="leftnav" method="post" action="" >
+                    <input type="hidden" name="checkk" id="checkk" value="1" />
+						<table class="table table-bordered">
+							<thead>
+								<tr class="long-tr">
+									<th width="5%">ID</th>
+									<th width="25%">用户名</th>
+									<th width="40%">描述</th>
+									<th width="20%">操作时间</th>
+								</tr>
+							</thead>
+							<tbody>
+								<foreach name="list" item="v">
+									<tr class="long-td">
+										<td>{$v.log_id}</td>
+										<td>{$v.admin_name}</td>
+										<td>{$v.description}</td>
+										<td>{$v.add_time|date='Y-m-d H:i:s',###}</td>
+									</tr>
+                                 </foreach>   
+							</tbody>
+						</table>
+					</form>
+						<div class="pages" style=" text-align: right;">
+							{$page}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<include file="Public:footer" />
+	</body>
+
+</html>

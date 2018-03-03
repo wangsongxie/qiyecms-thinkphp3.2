@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<include file="Public:header" />	
+	<link href="__PUBLIC__/Admin/css/plugins/switchery/switchery.css" rel="stylesheet"><!--IOS开关样式-->	    	
+	<script type="text/javascript" charset="utf-8" src="__PUBLIC__/Common/Ueditor/ueditor.config.js"></script>
+	<script type="text/javascript" charset="utf-8" src="__PUBLIC__/Common/Ueditor/ueditor.all.min.js"></script>
+	<script language="javascript" type="text/javascript" src="__ROOT__/Statics/My97/WdatePicker.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>
+	<include file="Public:page_css" />
+
+	<body class="gray-bg wrapper wrapper-content">
+		
+		
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-title">
+						<h5><i class="fa fa-tasks"></i> 添加单页</h5>
+					</div>
+					<div class="ibox-content">
+						<form class="form-horizontal" method="post" action="{:U('runadd')}" name="signupForm" id="signupForm">			
+                        <div class="form-group">
+								<label class="col-sm-2 control-label">文章标题</label>
+								<div class="col-sm-6">
+									<input type="text" name="title" id="title" placeholder="输入文章标题" class="form-control">
+								</div>
+							</div>
+							<div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">关键字</label>
+								<div class="col-sm-6">
+									<input type="text" name="keyword" id="keyword" placeholder="输入文章关键字" class="form-control"><p style="margin-top:10px;">多标签请用英文“,”分隔，如：outeng,管理,后台</p>
+								</div>
+							</div>
+							<div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">描述</label>
+								<div class="col-sm-6">
+									<textarea type="text" rows="5" name="remark" id="remark" placeholder="输入文章描述" class="form-control"></textarea>
+								</div>
+							</div>
+							<div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">文章封面 </label>
+								<div class="col-sm-6">
+									<div style="width: 200px; height: 110px; float: left;">
+										<input type="hidden" name="photo" value="" id="data_photo" />
+										<input id="photo_file" name="photo_file" type="file" multiple value="" />
+									</div>
+									<div style="height: 110px; float: left;">
+										<img id="upload_img" src="__ROOT__/Uploads/{$detail.photo}" onerror="this.src='__PUBLIC__/Admin/img/no_img.jpg'" style="height: 100px" />
+									</div>
+								</div>
+							</div>
+							<div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label"> 单页模板</label>
+								<div class="col-sm-5">
+									<select id="articlehtml" name="articlehtml" class="form-control m-b chosen-select">
+
+										<option value="">请选择单页模板文件</option>
+										<foreach name="showarray" item="v">
+											<option value="{$v}" <if condition="$v eq $detail[articlehtml]">selected</if>>{$v}</option>
+										</foreach>
+									</select>
+								</div>
+							</div>
+							<div class="hr-line-dashed"></div>				
+							<div class="form-group">
+                                <label class="col-sm-2 control-label">内容：</label>
+                                <div class="col-sm-10">
+                                    <script type="text/plain" id="editor" name="s_content" style="width:90%;height:200px;"></script>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">是否显示</label>
+								<div class="col-sm-6">
+									<div class="radio ">
+	                        			<input type="checkbox" name='s_view' value="1" class="js-switch" checked />&nbsp;&nbsp;默认显示	                        			
+	                        		</div>
+								</div>
+							</div>
+                            <div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">作者</label>
+								<div class="col-sm-6">
+									<input type="text" name="s_writer" id="s_writer" value="{$admin['username']}" class="form-control">
+								</div>
+							</div>
+							<div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<div class="col-sm-4 col-sm-offset-2">
+									<button class="btn btn-primary" type="submit">保存内容</button>
+									<a class="btn btn-white" href="{:U('Said/index')}">取消</a>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<include file="Public:footer" />
+		<js file='__PUBLIC__/Admin/uploadify/jquery.uploadify.min.js' />
+		<link rel="stylesheet" href="__PUBLIC__/Admin/uploadify/uploadify.css">
+	<script src="__PUBLIC__/Admin/js/plugins/switchery/switchery.js"></script><!--IOS开关样式-->	  
+  	<script type="text/javascript">
+		$("#photo_file").uploadify({
+			'swf': '__PUBLIC__/Admin/uploadify/uploadify.swf?t={$nowtime}',
+			'uploader': '{:U("Upload/upload")}',
+			'cancelImg': '__PUBLIC__/Admin/uploadify/uploadify-cancel.png',
+			'buttonText': '上传封面',
+			'height': 35,
+			'fileTypeExts': '*.gif;*.jpg;*.png',
+			'queueSizeLimit': 1,
+			'onUploadSuccess': function(file, data, response) {
+				$("#data_photo").val(data);
+				$("#upload_img").attr('src', '__ROOT__/Uploads' + data).show();
+			}
+		});
+		$(function(){
+			
+			$('#signupForm').ajaxForm({		
+				success: complete, 
+				dataType: 'json'
+			});
+			
+			function complete(data){
+
+				if(data.status==1){
+					layer.alert(data.info, {icon: 6}, function(index){
+		 			layer.close(index);
+					window.location.href=data.url;
+					});
+				}else{
+					layer.alert(data.info, {icon: 5});
+					return false;	
+				}
+			}
+		 
+		});
+		
+	</script>
+	<script type="text/javascript">
+	
+	var ue = UE.getEditor('editor');
+	var editor_a = new baidu.editor.ui.Editor(editorOption);
+	editor_a.render('editor');
+	
+	</script>
+	<script>
+		//IOS开关样式配置
+       var elem = document.querySelector('.js-switch');
+            var switchery = new Switchery(elem, {
+                color: '#1AB394'
+            });
+        var config = {
+            '.chosen-select': {},                    
+        }
+        for (var selector in config) {
+            $(selector).chosen(config[selector]);
+        }
+
+    </script>
+	</body>
+
+</html>

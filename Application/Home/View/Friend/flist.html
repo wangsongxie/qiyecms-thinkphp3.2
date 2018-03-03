@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="UTF-8">
+    <title>好友列表</title>
+    <style>
+        .hidden {
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <p>欢迎您,{$loginUser}  ,<a href="{:U('Login/logout')}">注销</a></p>
+    <ul>
+        <volist name="res" id="vo">
+            <li class="uli"><span class="hidden">{$vo.id}</span><span class="show">{$vo.username}</span></li>
+        </volist>
+    </ul>
+
+    <load href="__PUBLIC__/chat/Js/Jquery/jquery.js" />
+    <script type="text/javascript">
+		//var URL = 'U("Message/chatHall")';
+        $(function(){
+            //鼠标悬停事件
+            $('.uli').mouseover(function(){
+                $(this).css('color','red');
+            }).mouseout(function(){
+                $(this).css('color','black');
+            });
+            //点击事件
+            $('.uli').click(function(){
+                var getter = $(this).find('.show').html();
+                var id = $(this).find('.hidden').html();
+                openWindow(getter,id);
+            });
+        });
+
+		//点开对话框
+        function openWindow(getter,id){
+            window.open('/qiye/index.php/Message/chatHall?getter='+getter+'&id='+id,'_blank',200,200);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<include file="Public:header" />
+	<include file="Public:page_css" />
+	<script>
+	$(function(){
+		$('#admin_rule_edit').ajaxForm({
+			beforeSubmit: checkForm, // 此方法主要是提交前执行的方法，根据需要设置
+			success: complete, // 这是提交后的方法
+			dataType: 'json'
+		});
+
+		function checkForm(){
+			if( '' == $.trim($('#title').val())){
+				layer.alert('名称不能为空', {icon: 6}, function(index){
+	 			layer.close(index);
+				$('#title').focus();
+				});
+				return false;
+			}
+
+			if( '' == $.trim($('#name').val())){
+				layer.alert('控制器/方法不能为空', {icon: 6}, function(index){
+	 			layer.close(index);
+				$('#name').focus();
+				});
+				return false;
+			}
+
+	 }
+		function complete(data){
+			if(data.status==1){
+				layer.alert(data.info, {icon: 6}, function(index){
+	 			layer.close(index);
+				window.location.href=data.url;
+				});
+			}else{
+				alert(data.info);
+				return false;
+			}
+		}
+
+	});
+	</script>
+
+
+	<body class="gray-bg wrapper wrapper-content">
+		
+
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					
+                    <div class="ibox-title">
+						<h5><i class="fa fa-tasks"></i> 编辑菜单{$adminnav.adminnav_title}</h5>
+					</div>
+					<div class="ibox-content">
+						<form class="form-horizontal" name="admin_rule_edit" id="admin_rule_edit" method="post" action="__URL__/admin_rule_edit">
+							<input type="hidden" name="id" id="id" value="{$rule.id}" />
+				            <div class="form-group">
+								<label class="col-sm-2 control-label"> 菜单名称</label>
+								<div class="col-sm-5">
+									<input type="text" name="title" id="title" value="{$rule.title}" placeholder="输入菜单名称"  class="form-control" />
+								</div>
+							</div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+								<label class="col-sm-2 control-label"> 控制器/方法</label>
+								<div class="col-sm-5">
+									<input type="text" name="name" id="name" value="{$rule.name}" placeholder="输入控制器/方法"  class="form-control" />
+								</div>
+							</div>
+							<div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label"> 样式名称</label>
+								<div class="col-sm-5">
+									<input type="text" name="css" id="css" value="{$rule.css}" placeholder="输入样式名称"  class="form-control" />
+									<span class="help-block m-b-none"> <a href="http://fontawesome.dashgame.com/" target="_black">选择图标</a> 不带前缀fa-，如fa-user => user </span>
+								</div>
+							</div>
+							<div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label"> 状&nbsp;态</label>
+								<div class="col-sm-5" style="padding-top:5px;">
+                                    <input name="status" id="status" value="1" class="js-switch" type="checkbox" <if condition='$rule[status] eq 1'>checked</if>/>
+									<span class="lbl">&nbsp;&nbsp;默认开启</span>
+								</div>
+							</div>
+							<div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label"> 排序</label>
+								<div class="col-sm-5">
+									<input type="text" name="sort" id="sort" value="{$rule.sort}" placeholder="输入排序"  class="form-control" />
+								</div>
+							</div>
+				            <div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<div class="col-sm-4 col-sm-offset-2">
+									<button class="btn btn-primary" type="submit">保存信息</button>&nbsp;&nbsp;&nbsp;
+									<a class="btn btn-danger" href="javascript:history.go(-1);">返回</a>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<include file="Public:footer" />
+
+		<!-- IOS开关样式配置 -->
+		<script>
+		var elem = document.querySelector('.js-switch');
+		    var switchery = new Switchery(elem, {
+		        color: '#1AB394'
+		    });
+		var config = {
+		    '.chosen-select': {},
+		}
+		for (var selector in config) {
+		    $(selector).chosen(config[selector]);
+		}
+
+		</script>
+
+	</body>
+</html>

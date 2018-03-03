@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+	<include file="Public:header" />
+	<include file="Public:page_css" />
+	<script>
+
+$(function(){
+	$('#sys').ajaxForm({
+		beforeSubmit: checkForm, // 此方法主要是提交前执行的方法，根据需要设置
+		success: complete, // 这是提交后的方法
+		dataType: 'json'
+	});
+	
+	function checkForm(){
+		
+		if( '' == $.trim($('#email_name').val())){
+			layer.alert('发送邮箱地址不能为空', {icon: 6}, function(index){
+ 			layer.close(index);
+			$('#email_name').focus(); 
+			});
+		}
+		
+		if( '' == $.trim($('#email_emname').val())){
+			layer.alert('邮箱名不能为空', {icon: 6}, function(index){
+ 			layer.close(index);
+			$('#email_emname').focus(); 
+			});
+		}
+		
+		if( '' == $.trim($('#email_rename').val())){
+			layer.alert('发件人姓名不能为空', {icon: 6}, function(index){
+ 			layer.close(index);
+			$('#email_rename').focus(); 
+			});
+		}
+		
+		if( '' == $.trim($('#email_pwd').val())){
+			layer.alert('邮箱密码不能为空', {icon: 6}, function(index){
+ 			layer.close(index);
+			$('#email_pwd').focus(); 
+			});
+		}
+		
+		if( '' == $.trim($('#email_smtpname').val())){
+			layer.alert('smtp服务器名称不能为空', {icon: 6}, function(index){
+ 			layer.close(index);
+			$('#email_smtpname').focus(); 
+			});
+		}
+ }
+	function complete(data){
+		if(data.status==1){
+			layer.alert(data.info, {icon: 6}, function(index){
+ 			layer.close(index);
+			window.location.href="{:U('Sys/emailsys')}";
+			});
+		}else{
+			alert(data.info);
+			return false;	
+		}
+	}
+ 
+});
+</script>
+	<body class="gray-bg wrapper wrapper-content">
+
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					
+                    <div class="ibox-title">
+						<h5><i class="fa fa-tasks"></i> 邮件设置</h5>
+					</div>
+					<div class="ibox-content">
+						<form name="sys" id="sys" method="post" action="{:U('emailsys')}" class="form-horizontal">
+						<input type="hidden" name="sys_id" value="{$sys.sys_id}" />
+							<div class="form-group">
+								<label class="col-sm-2 control-label">设置发送邮箱</label>
+								<div class="col-sm-6">
+									<input type="text" name="email_name" id="email_name" value="{$sys.email_name}" class="form-control" placeholder="设置发送邮箱"/>
+								</div>
+							</div>
+							<div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">设置邮箱名</label>
+								<div class="col-sm-6">
+									<input type="text" name="email_emname" id="email_emname" value="{$sys.email_emname}" placeholder="设置邮箱名" class="form-control">
+								</div>
+							</div>							
+							<div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">设置发件人姓名</label>
+								<div class="col-sm-6">
+									<input type="text" name="email_rename" id="email_rename" value="{$sys.email_rename}" placeholder="设置发件人姓名" class="form-control"/>
+								</div>
+							</div>
+                            <div class="hr-line-dashed"></div>    
+							<div class="form-group">
+								<label class="col-sm-2 control-label">设置邮箱密码</label>
+								<div class="col-sm-6">
+									<input type="password" name="email_pwd" id="email_pwd" value="{$sys.email_pwd}" placeholder="设置邮箱密码" class="form-control"/>
+								</div>
+							</div>
+                            <div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">smtp服务器的名称</label>
+								<div class="col-sm-6">
+									<input type="text" name="email_smtpname" id="email_smtpname" value="{$sys.email_smtpname}" placeholder="smtp服务器的名称" class="form-control"/>
+							  </div>
+							</div>
+							<div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">是否开启邮箱</label>
+								<div class="col-sm-6">
+									<div class="radio">
+										<input name="email_open" id="email_open" <if condition='$sys[email_open] eq 1'>checked</if>  value="1" class="js-switch" type="checkbox" />
+	                        		</div>
+								</div>
+							</div>
+							<div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<div class="col-sm-4 col-sm-offset-2">
+									<button class="btn btn-primary" type="submit">保存信息</button>&nbsp;&nbsp;&nbsp;
+									<a class="btn btn-danger" href="{:U('Index/index')}">取消</a>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<include file="Public:footer" />
+
+<script>
+	//IOS开关样式配置
+   var elem = document.querySelector('.js-switch');
+        var switchery = new Switchery(elem, {
+            color: '#1AB394'
+        });
+    var config = {
+        '.chosen-select': {},                    
+    }
+    for (var selector in config) {
+        $(selector).chosen(config[selector]);
+    }
+
+</script>
+	</body>
+
+</html>

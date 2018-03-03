@@ -1,0 +1,30 @@
+﻿<include file="Public:header" />
+
+<!--main start-->
+<div class="main_bg cl">
+	<div class="content">
+		<div class="type fl">
+			<img src="__PUBLIC__/style/images/main02.jpg" class="fl">
+			<p class="fl">
+            
+                            <volist name='pcate' id='vo'>
+                            <a href="{:U(Article/index,array('id'=>$vo['id']))}">·{$vo.cate_name}</a>
+							</volist>
+                           </p>
+		</div>
+		<div class="path fr"><img src="style/images/main03.jpg">您的当前位置：<a href="index.php">首页</a> > {$cate['cate_name']}</div>
+		<div class="m_pro cl">
+		    <p style="text-align:center;font-size:14px;color:#000;">{$detail.a_title}</p><br/>
+            <div id="pic">
+            {$detail.a_content}
+            <span id="prev_none"><</span> 
+             <a href="{:U('Article/show',array('id'=>$nex['a_id']))}"><span id="next">></span></a>             </div>
+            <br/>
+            <p> </p>
+			<div class="cl"></div>
+		</div>
+		<!--<div class="page cl tc"></div>-->
+	</div>
+</div>
+<!--main end-->
+<include file="Public:footer" />

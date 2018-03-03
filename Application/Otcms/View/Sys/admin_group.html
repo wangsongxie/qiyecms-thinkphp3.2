@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+	<include file="Public:header" />
+	<include file="Public:page_css" />
+	<body class="gray-bg wrapper wrapper-content">
+		
+
+	
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-title">
+						<h5><i class="fa fa-tasks"></i> 角色列表</h5>
+					</div>
+                    
+                    <div class="ibox-content">
+                    
+                             <div class="row">
+                    
+                         <div class="col-sm-2" style="width: 100px">
+                            <div class="input-group">
+                              <a href="{:U('Sys/admin_group_add')}" class="btn btn-primary">添加角色</a>
+                            </div>
+                        </div>
+                      
+                    
+                </div>
+                 <div class="hr-line-dashed"></div>
+      	
+          
+          
+       
+     
+     
+     
+        
+        
+        
+					
+						<table class="table table-bordered">
+							<thead>
+								<tr class="long-tr">
+									<th>ID</th>
+									<th>角色名称</th>
+									<th>状态</th>
+									<th>添加时间</th>
+									<th width="25%">操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<foreach name="auth_group" item="v">
+									<tr class="long-td">
+										<td>{$v.id}</td>
+										<td>{$v.title}</td>
+										<td id="h{$v.id}">
+											<if condition='$v[status] eq 1'>
+												<a class="red" href="javascript:;" onclick="return stateyes({$v.id});" title="已开启">
+												<div id="zt{$v.id}"><span class="label label-info">开启</span></div>
+												</a>
+											<else/>
+												<a class="red" href="javascript:;" onclick="return stateyes({$v.id});" title="已禁用">
+												<div id="zt{$v.id}"><span class="label label-danger">禁用</span></div>
+												</a>
+											</if>
+										</td>
+										<td>{$v.addtime|date='Y-m-d H:i:s',###}</td>
+										<td>
+											<a href="{:U('admin_group_access',array('id'=>$v['id']))}" class="btn btn-success">权限设置</a>&nbsp;&nbsp;
+											<a href="{:U('admin_group_edit',array('id'=>$v['id']))}" class="btn btn-primary"><i class="fa fa-paste"></i> 编辑</a>&nbsp;&nbsp;
+											<a onclick="return del({$v.id});" href="javascript:;" class="btn btn-danger demo1">
+													<i class="fa fa-trash-o"></i> 删除</a>
+										</td>
+									</tr>
+								</foreach>
+							</tbody>
+						</table>
+						<div class="pages" style=" text-align: right;">
+							{$page}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+<script>
+function del(id){
+		layer.confirm('你确定要删除吗？', {icon: 3}, function(index){
+	    layer.close(index);
+	    window.location.href="__URL__/admin_group_del/id/"+id+"";
+	});
+}
+
+function stateyes(val){
+		  $.post('{:U("admin_group_state")}',
+		  {x:val},
+	function(data){
+	var $v=val;
+		if(data.status){
+			if(data.info=='状态禁止'){
+				var a='<span class="label label-danger">禁用</span>'
+				$('#zt'+val).html(a);
+				return false;
+			}else{
+				var b='<span class="label label-info">开启</span>'
+				$('#zt'+val).html(b);
+				return false;
+			}
+			
+		}
+	});
+	return false;
+}
+</script>
+		<include file="Public:footer" />
+	</body>
+
+</html>

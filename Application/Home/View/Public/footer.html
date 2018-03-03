@@ -1,0 +1,85 @@
+﻿<!--footer start-->
+<script type="text/javascript">
+function Isyx(yx){
+	var reyx= /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
+	return(reyx.test(yx));
+	}
+function doSubmit(){
+	if(document.getElementById('lc_name').value == '')
+	{
+		alert("请输入姓名");
+		document.getElementById('lc_name').focus();
+		return false;
+	}
+	
+	if(document.getElementById('lc_email').value == '')
+	{
+		alert("请输入邮箱");
+		document.getElementById('lc_email').focus();
+		return false;
+	}
+	if (!Isyx(document.getElementById('lc_email').value)){
+		 alert("请输入正确的邮箱");
+		document.getElementById('lc_email').focus();
+		return false;
+     }
+	
+	var reg =/(^0{0,1}1[3|4|5|6|7|8|9][0-9]{9}$)/; 
+	if(document.getElementById('lc_tel').value == '')
+	{
+		alert("请输入电话");
+		document.getElementById('lc_tel').focus();
+		return false;
+	}
+	if(!reg.test(document.getElementById('lc_tel').value)){ 
+        alert("请输入正确电话");
+		document.getElementById('lc_tel').focus();
+		return false;
+     }
+	
+	if(document.getElementById('lc_address').value == '')
+	{
+		alert("请输入地址");
+		document.getElementById('lc_address').focus();
+		return false;
+	}
+	
+	if(document.getElementById('lc_content').value == '')
+	{
+		alert("请输入留言内容");
+		document.getElementById('lc_content').focus();
+		return false;
+	}
+}
+</script>
+<div class="contact_bg cl">
+	<div class="content">
+		<div class="contact fl">
+			<img src="__PUBLIC__/style/images/cont_tit.jpg">
+			<p>多年来，华琳食品用心孕育汉密哈顿，引进欧式烘焙制作工艺、聘请国际一流水平烘焙师，潜心研发数千种精致美观、营养健康的烘焙臻品，而优雅舒适的店面环境更成为时尚品味人士的首选。一切努力源于一份追求，源于心中里的一份执着：让大众吃上好面包。</p>
+			<ul>
+				<li><img src="__PUBLIC__/style/images/cont1.jpg"><br>哈尔滨市道里区尚志大街160号龙采科技16楼技术中心</li>
+				<li><img src="__PUBLIC__/style/images/cont2.jpg"><br>0451-88888888<br />
+13912345678</li>
+				<li><img src="__PUBLIC__/style/images/cont3.jpg"><br>12345678@qq.com</li>
+			</ul>
+		</div>
+		<div class="message fr">
+        <form action="{:U('Public/put')}" method="post" name="myform" onSubmit="return doSubmit()">
+			<p><input type="text" class="mes_form1 fl" name="lc_name" id="lc_name" placeholder="姓名："><input type="text" name="lc_tel" id="lc_tel" class="mes_form1 fr" placeholder="电话："><div class="cl"></div></p>
+			<p><input type="text" name="lc_email" id="lc_email" class="mes_form2" placeholder="邮箱："></p>
+			<p><textarea name="lc_content" id="lc_content" class="mes_form3" placeholder="留言："></textarea></p>
+			<p><input type="submit" value="提交留言  →" class="mes_btn" style="cursor:pointer"></p>
+        </form>
+		</div>
+		<div class="cl"></div>
+	</div>
+</div>
+<div class="footer cl">
+	<div class="content tc">版权所有：***科技公司&nbsp; 咨询热线：400-681-8888&nbsp; 地址：中国北京&nbsp; 备案号：京ICP*****号</div>
+</div>
+<!--footer end-->
+</body>
+
+
+</html>

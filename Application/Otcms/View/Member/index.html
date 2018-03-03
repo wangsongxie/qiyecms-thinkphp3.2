@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<include file="Public:header" />
+	<include file="Public:page_css" />
+
+	<body class="gray-bg wrapper wrapper-content">
+
+		
+	
+		<link rel="stylesheet" type="text/css" media="all" href="__PUBLIC__/sldate/daterangepicker-bs3.css" />
+		<script src="__PUBLIC__/Admin/js/jquery.min.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/sldate/moment.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/sldate/daterangepicker.js"></script>
+		<script type="text/javascript">
+               $(document).ready(function() {
+                  $('#reservation').daterangepicker(null, function(start, end, label) {
+                    console.log(start.toISOString(), end.toISOString(), label);
+                  });
+               });
+        </script>
+        
+
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-title">
+						<h5><i class="fa fa-tasks"></i> 会员列表</h5>
+					</div>
+					<div class="ibox-content">
+                    
+                    
+                    <div class="row">
+			
+				<div class="col-sm-1">
+					<div class="input-group">
+			            <a href="{:U('Member/add')}" class="btn btn-primary">添加会员</a>
+			        </div>
+			    </div>
+			    <form name="admin_list_sea" class="form-search" method="post" action="__URL__/index">
+					<div  class="col-sm-2">
+						<div class="input-group" style="width: 240px">
+						<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+							<input type="text" class="form-control" name="reservation" id="reservation" class="sl-date" value="{$s}" placeholder="点击选择出生日期范围"/>
+						</div>
+					</div>
+					<div class="col-sm-3">
+						<div class="input-group">
+							<input type="text" name="key" id="key" class="form-control" value="{$val}" placeholder="输入需查询的用户名" />
+							<span class="input-group-btn">
+				            	<button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> 搜索</button>
+				            </span>
+						</div>
+					</div>
+				</form>
+			
+		</div>
+        
+        <div class="hr-line-dashed"></div>
+        
+					<form id="leftnav" name="leftnav" method="post" action="" >
+                    <input type="hidden" name="checkk" id="checkk" value="1" />
+
+						<table class="table table-bordered">
+							<thead>
+								<tr class="long-tr">
+									<th width="5%">ID</th>
+									<th width="8%">姓名</th>
+									<th width="5%">性别</th>
+									<th width="8%">头像</th>
+									<th width="8%">出生日期</th>
+									<th width="8%">邮箱</th>
+									<th width="8%">手机号</th>
+									<th width="15%">地址</th>
+									<th width="8%">添加时间</th>
+									<th width="10%">备注</th>
+									<th width="6%">状态</th>
+									<th width="10%">操作</th>
+								</tr>
+							</thead>
+							<script id="arlist" type="text/html">
+								{{# for(var i=0;i<d.length;i++){  }}
+
+								<tr class="long-td">
+								  	<td>{{d[i].id}}</td>
+									<td>{{d[i].username}}</td>
+									<td>
+								  		{{# if(d[i].sex==1){ }}
+								  			男
+								  		{{# }else if(d[i].sex==2){ }}
+								  			女
+										{{# }else{ }}
+											保密
+								  		{{# } }}
+									</td>
+									<td><img class="img-circle" src="__ROOT__/Uploads/{{d[i].headpic}}" style="width:30px;height:30px" onerror="this.src='__PUBLIC__/Admin/img/touxiang_default.gif'"/></td>
+									<td>{{d[i].birthdate}}</td>
+									<td>{{d[i].email}}</td>
+									<td>{{d[i].phone}}</td>
+									<td>{{d[i].address}}</td>
+									<td>{{d[i].create_time}}</td>
+									<td>{{d[i].note}}</td>
+									<td>
+										{{# if(d[i].state==1){ }}
+											<a class="red" href="javascript:;" onclick="return state({{d[i].id}});" title="已开启">
+												<div id="zt{{d[i].id}}"><span class="label label-info">开启</span></div>
+											</a>
+								  		{{# }else{ }}
+											<a class="red" href="javascript:;" onclick="return state({{d[i].id}});" title="已禁用">
+												<div id="zt{{d[i].id}}"><span class="label label-danger">禁用</span></div>
+											</a>
+								  		{{# } }}
+									</td>
+									<td>
+										<a href="javascript:;" onclick="edit({{d[i].id}})" class="btn btn-primary btn-xs">
+											<i class="fa fa-paste"></i> 编辑</a>&nbsp;&nbsp;
+										<a href="javascript:;" onclick="del({{d[i].id}})" class="btn btn-danger btn-xs">
+											<i class="fa fa-trash-o"></i> 删除</a>
+									</td>
+								</tr>
+								{{# } }}
+							</script>
+							<tbody id="article_list"></tbody>
+
+						</table>
+
+					</form>
+
+					<div id="AjaxPage" style=" text-align: right;"></div>
+					<div id="allpage" style=" text-align: right;"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<script type="text/javascript" src="__PUBLIC__/Common/laytpl/laytpl.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/Common/laypage/laypage.js"></script>
+	<include file="Public:footer" />
+
+	<script type="text/javascript">
+	//laypage分页
+	function Ajaxpage(curr){
+		var key=$('#key').val();//搜索关键字
+		var reservation=$('#reservation').val();//日期
+		$.get('{:U("Member/index")}', {
+	        page: curr || 1,key:key,reservation:reservation
+	    }, function(data){
+			if(data.list=null){
+				$("#article_list").html('<center style="margin-top:300px;font-size:15px;">没有数据</center>');
+			}else{
+				article_list(data.info);
+				laypage({
+					cont: $('#AjaxPage'),//容器。值支持id名、原生dom对象，jquery对象,
+					pages:'{$allpage}',//总页数
+					skip: true,//是否开启跳页
+					skin: '#1AB5B7',
+					curr: curr || 1,
+					groups: 4,//连续显示分页数
+					jump: function(obj, first){
+
+						if(!first){
+							Ajaxpage(obj.curr)
+						}
+						$('#allpage').html('第'+ obj.curr +'页，共'+ obj.pages +'页');
+					}
+				});
+			}
+		});
+	}
+	Ajaxpage();
+
+//接收异步获取的数据渲染到模板
+function article_list(list){
+	var tpl = document.getElementById('arlist').innerHTML;
+	laytpl(tpl).render(list, function(html){
+		document.getElementById('article_list').innerHTML = html;
+	});
+}
+
+//状态
+function state(val){
+	$.post('{:U("member_state")}',
+	{id:val},
+	function(data){
+	var $v=val;
+		if(data.status){
+			if(data.info=='状态禁止'){
+				var a='<span class="label label-danger">禁用</span>'
+				$('#zt'+val).html(a);
+				return false;
+			}else{
+				var b='<span class="label label-info">开启</span>'
+				$('#zt'+val).html(b);
+				return false;
+			}
+
+		}
+	});
+	return false;
+}
+
+
+//编辑
+function edit(id){
+
+	location.href = '__URL__/edit/id/'+id+'.html';
+}
+
+//删除
+function del(id){
+
+	layer.confirm('你确定要删除吗？', {icon: 3}, function(index){
+		layer.close(index);
+		$.ajax({
+			url : "{:U('Member/del')}",
+			type : "post",
+			data:{id:id},
+			success : function(res) {
+				if(res.status) {
+					layer.msg(res.info,{icon:1,time:1000});
+					Ajaxpage(1,5)
+				} else {
+					layer.msg(res.info,{icon:0});
+				}
+			}
+		});
+	});
+
+}
+
+
+</script>
+
+	</body>
+
+</html>
